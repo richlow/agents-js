@@ -55,10 +55,22 @@ function getCurrentBrisbaneTime() {
 
 export default defineAgent({
     prewarm: async (proc) => {
-        proc.userData.vad = await silero.VAD.load();
+        // Try to load silero VAD, fall back to null if not available
+        try {
+            const silero = await import('@livekit/agents-plugin-silero');
+            proc.userData.vad = await silero.VAD.load();
+            console.log('Silero VAD loaded successfully');
+        } catch (error) {
+            console.warn('Silero VAD plugin not available, using null VAD fallback:', error.message);
+            proc.userData.vad = null;
+        }
     },
     entry: async (ctx) => {
         const vad = ctx.proc.userData.vad;
+        
+        if (!vad) {
+            console.warn('Running without VAD - voice activity detection will be limited');
+        }
         
         // Enhanced system prompt for healthcare scheduling
         const initialContext = new llm.ChatContext().append({
