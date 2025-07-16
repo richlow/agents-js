@@ -6,7 +6,7 @@ services:
     region: oregon
     plan: starter
     rootDir: connected-grid-225en6
-    buildCommand: npm install
+    buildCommand: npm install && npm run build
     startCommand: npm start
     envVars:
       - key: NODE_ENV

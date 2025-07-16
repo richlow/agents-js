@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node dist/cleo.js start",
-    "dev": "node dist/cleo.js dev",
-    "build": "echo 'No build needed - using pre-compiled JS'",
+    "dev": "node src/cleo.js dev",
+    "build": "mkdir -p dist && cp src/*.js dist/",
     "test": "echo 'No tests specified'"
   },
   "engines": {
