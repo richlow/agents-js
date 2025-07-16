@@ -39,11 +39,20 @@
     "eslint-plugin-standard": "^5.0.0",
     "eslint-plugin-tsdoc": "^0.2.17",
     "prettier": "^3.2.5",
+    "tsup": "^8.4.0",
     "turbo": "^1.13.3",
     "typedoc": "^0.25.13",
     "typescript": "^5.4.5",
-    "vitest": "^1.6.0",
-    "tsup": "^8.4.0"
+    "vitest": "^1.6.0"
   },
-  "packageManager": "pnpm@9.7.0"
+  "packageManager": "pnpm@9.7.0",
+  "dependencies": {
+    "@livekit/agents": "^0.7.7",
+    "@livekit/agents-plugin-deepgram": "^0.5.7",
+    "@livekit/agents-plugin-elevenlabs": "^0.6.3",
+    "@livekit/agents-plugin-openai": "^0.9.3",
+    "@livekit/agents-plugin-silero": "^0.5.8",
+    "dotenv": "^17.2.0",
+    "zod": "^3.23.8"
+  }
 }

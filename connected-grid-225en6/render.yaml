@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: cleo-healthcare-agent
+    runtime: node
+    env: node
+    region: oregon
+    plan: starter
+    rootDir: connected-grid-225en6
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        generateValue: true
+      - key: HOST
+        value: 0.0.0.0
+      - key: LIVEKIT_URL
+        sync: false
+      - key: LIVEKIT_API_KEY
+        sync: false
+      - key: LIVEKIT_API_SECRET
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: DEEPGRAM_API_KEY
+        sync: false
+      - key: ELEVEN_API_KEY
+        sync: false
+      - key: LOG_LEVEL
+        value: info
+    healthCheckPath: /health
+    autoDeploy: true
+    disk:
+      name: cleo-disk
+      mountPath: /tmp
+      sizeGB: 1 

@@ -7,6 +7,28 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@livekit/agents':
+        specifier: ^0.7.7
+        version: 0.7.7(@livekit/rtc-node@0.13.12)
+      '@livekit/agents-plugin-deepgram':
+        specifier: ^0.5.7
+        version: 0.5.7(@livekit/agents@0.7.7(@livekit/rtc-node@0.13.12))(@livekit/rtc-node@0.13.12)
+      '@livekit/agents-plugin-elevenlabs':
+        specifier: ^0.6.3
+        version: 0.6.3(@livekit/agents@0.7.7(@livekit/rtc-node@0.13.12))(@livekit/rtc-node@0.13.12)
+      '@livekit/agents-plugin-openai':
+        specifier: ^0.9.3
+        version: 0.9.3(@livekit/agents@0.7.7(@livekit/rtc-node@0.13.12))(@livekit/rtc-node@0.13.12)(zod@3.23.8)
+      '@livekit/agents-plugin-silero':
+        specifier: ^0.5.8
+        version: 0.5.8(@livekit/agents@0.7.7(@livekit/rtc-node@0.13.12))(@livekit/rtc-node@0.13.12)
+      dotenv:
+        specifier: ^17.2.0
+        version: 17.2.0
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       '@changesets/cli':
         specifier: ^2.27.1
@@ -37,7 +59,7 @@ importers:
         version: 8.10.0(eslint@8.57.0)
       eslint-config-standard:
         specifier: ^17.1.0
-        version: 17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0))(eslint-plugin-n@16.6.2(eslint@8.57.0))(eslint-plugin-promise@6.1.1(eslint@8.57.0))(eslint@8.57.0)
+        version: 17.1.0(eslint-plugin-import@2.29.1)(eslint-plugin-n@16.6.2(eslint@8.57.0))(eslint-plugin-promise@6.1.1(eslint@8.57.0))(eslint@8.57.0)
       eslint-config-turbo:
         specifier: ^1.12.2
         version: 1.13.3(eslint@8.57.0)
@@ -1351,6 +1373,35 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
+  '@livekit/agents-plugin-deepgram@0.5.7':
+    resolution: {integrity: sha512-pIDqR+J3g9DAkaEHcdncnVGSl+IclUcuncZvphWcS+cy5O+Ika+aCPCT6jHtKU9VkZAHcclmi3JFpOwODm1PPA==}
+    peerDependencies:
+      '@livekit/agents': ^0.7.7x
+      '@livekit/rtc-node': ^0.13.11
+
+  '@livekit/agents-plugin-elevenlabs@0.6.3':
+    resolution: {integrity: sha512-l9bBCnn9VMgwVHJDilpf7dgnKz3QykoxPkBshFKCWj4apltM/XAtXK5FJJqdzTHJNNaWyEz4OyMCy4lGIR1kmw==}
+    peerDependencies:
+      '@livekit/agents': ^0.7.7x
+      '@livekit/rtc-node': ^0.13.11
+
+  '@livekit/agents-plugin-openai@0.9.3':
+    resolution: {integrity: sha512-a3R5eHPwNkJESG7yjP6cD047Rv/gXg+8iPQlcZ1AyN139tz2+Pg4mTBjohRPosD/NNfu6M+TE/+WzMjPr/eCWw==}
+    peerDependencies:
+      '@livekit/agents': ^0.7.7x
+      '@livekit/rtc-node': ^0.13.11
+
+  '@livekit/agents-plugin-silero@0.5.8':
+    resolution: {integrity: sha512-nxeBiyzGR0k5zHuyvgnkJpMHa33a4D0OLEaRR4KmLdOKi0/CYoGiCb3OeVokNdzXBK8fnI6wawoDwC8Q2WqYHA==}
+    peerDependencies:
+      '@livekit/agents': ^0.7.7x
+      '@livekit/rtc-node': ^0.13.11
+
+  '@livekit/agents@0.7.7':
+    resolution: {integrity: sha512-Jtym2GUV8dh5EW595xC6/XFWlKJf6tuNiQjJdQPWqBs18Y5zSu6nC6BFFyRuj/bZAwLfKz/AYOQ2MRPZWlaM+w==}
+    peerDependencies:
+      '@livekit/rtc-node': ^0.13.12
+
   '@livekit/changesets-changelog-github@0.0.4':
     resolution: {integrity: sha512-MXaiLYwgkYciZb8G2wkVtZ1pJJzZmVx5cM30Q+ClslrIYyAqQhRbPmZDM79/5CGxb1MTemR/tfOM25tgJgAK0g==}
 
@@ -2393,6 +2444,10 @@ packages:
 
   dotenv@16.0.3:
     resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+    engines: {node: '>=12'}
+
+  dotenv@17.2.0:
+    resolution: {integrity: sha512-Q4sgBT60gzd0BB0lSyYD3xM4YxrXA9y4uBDof1JNYGzOXrQdQ6yX+7XIAqoFOGQFOTK1D3Hts5OllpxMDZFONQ==}
     engines: {node: '>=12'}
 
   dotenv@8.6.0:
@@ -5247,6 +5302,63 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
 
+  '@livekit/agents-plugin-deepgram@0.5.7(@livekit/agents@0.7.7(@livekit/rtc-node@0.13.12))(@livekit/rtc-node@0.13.12)':
+    dependencies:
+      '@livekit/agents': 0.7.7(@livekit/rtc-node@0.13.12)
+      '@livekit/rtc-node': 0.13.12
+      ws: 8.18.1
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
+  '@livekit/agents-plugin-elevenlabs@0.6.3(@livekit/agents@0.7.7(@livekit/rtc-node@0.13.12))(@livekit/rtc-node@0.13.12)':
+    dependencies:
+      '@livekit/agents': 0.7.7(@livekit/rtc-node@0.13.12)
+      '@livekit/rtc-node': 0.13.12
+      ws: 8.18.1
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
+  '@livekit/agents-plugin-openai@0.9.3(@livekit/agents@0.7.7(@livekit/rtc-node@0.13.12))(@livekit/rtc-node@0.13.12)(zod@3.23.8)':
+    dependencies:
+      '@livekit/agents': 0.7.7(@livekit/rtc-node@0.13.12)
+      '@livekit/rtc-node': 0.13.12
+      openai: 4.91.1(ws@8.18.1)(zod@3.23.8)
+      sharp: 0.33.5
+      ws: 8.18.1
+    transitivePeerDependencies:
+      - bufferutil
+      - encoding
+      - utf-8-validate
+      - zod
+
+  '@livekit/agents-plugin-silero@0.5.8(@livekit/agents@0.7.7(@livekit/rtc-node@0.13.12))(@livekit/rtc-node@0.13.12)':
+    dependencies:
+      '@livekit/agents': 0.7.7(@livekit/rtc-node@0.13.12)
+      '@livekit/rtc-node': 0.13.12
+      onnxruntime-node: 1.20.1
+      ws: 8.18.1
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
+  '@livekit/agents@0.7.7(@livekit/rtc-node@0.13.12)':
+    dependencies:
+      '@livekit/mutex': 1.1.1
+      '@livekit/protocol': 1.29.1
+      '@livekit/rtc-node': 0.13.12
+      '@livekit/typed-emitter': 3.0.0
+      commander: 12.0.0
+      livekit-server-sdk: 2.9.2
+      pino: 8.21.0
+      pino-pretty: 11.0.0
+      ws: 8.18.1
+      zod: 3.23.8
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
   '@livekit/changesets-changelog-github@0.0.4':
     dependencies:
       '@changesets/get-github-info': 0.5.2
@@ -6261,6 +6373,8 @@ snapshots:
 
   dotenv@16.0.3: {}
 
+  dotenv@17.2.0: {}
+
   dotenv@8.6.0: {}
 
   eastasianwidth@0.2.0: {}
@@ -6520,7 +6634,7 @@ snapshots:
     dependencies:
       eslint: 8.57.0
 
-  eslint-config-standard@17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0))(eslint-plugin-n@16.6.2(eslint@8.57.0))(eslint-plugin-promise@6.1.1(eslint@8.57.0))(eslint@8.57.0):
+  eslint-config-standard@17.1.0(eslint-plugin-import@2.29.1)(eslint-plugin-n@16.6.2(eslint@8.57.0))(eslint-plugin-promise@6.1.1(eslint@8.57.0))(eslint@8.57.0):
     dependencies:
       eslint: 8.57.0
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
@@ -6545,7 +6659,7 @@ snapshots:
       debug: 4.3.4
       enhanced-resolve: 5.16.1
       eslint: 8.57.0
-      eslint-module-utils: 2.8.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1)(eslint@8.57.0))(eslint@8.57.0)
+      eslint-module-utils: 2.8.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
       fast-glob: 3.3.2
       get-tsconfig: 4.7.5
@@ -6557,7 +6671,7 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-module-utils@2.8.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1)(eslint@8.57.0))(eslint@8.57.0):
+  eslint-module-utils@2.8.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
@@ -6585,7 +6699,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 8.57.0
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.8.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1)(eslint@8.57.0))(eslint@8.57.0)
+      eslint-module-utils: 2.8.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
       hasown: 2.0.2
       is-core-module: 2.13.1
       is-glob: 4.0.3
@@ -7538,6 +7652,21 @@ snapshots:
       node-fetch: 2.7.0
     optionalDependencies:
       ws: 8.17.0
+      zod: 3.23.8
+    transitivePeerDependencies:
+      - encoding
+
+  openai@4.91.1(ws@8.18.1)(zod@3.23.8):
+    dependencies:
+      '@types/node': 18.19.64
+      '@types/node-fetch': 2.6.11
+      abort-controller: 3.0.0
+      agentkeepalive: 4.5.0
+      form-data-encoder: 1.7.2
+      formdata-node: 4.4.1
+      node-fetch: 2.7.0
+    optionalDependencies:
+      ws: 8.18.1
       zod: 3.23.8
     transitivePeerDependencies:
       - encoding

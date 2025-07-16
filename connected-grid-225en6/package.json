@@ -1,0 +1,35 @@
+{
+  "name": "cleo-healthcare-agent",
+  "version": "1.0.0",
+  "description": "Cleo - Healthcare Scheduling Voice Assistant for Noosa Springs Chiropractic",
+  "main": "dist/cleo.js",
+  "type": "module",
+  "scripts": {
+    "start": "node dist/cleo.js start",
+    "dev": "node dist/cleo.js dev",
+    "build": "echo 'No build needed - using pre-compiled JS'",
+    "test": "echo 'No tests specified'"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@livekit/agents": "^0.7.7",
+    "@livekit/agents-plugin-deepgram": "^0.5.7",
+    "@livekit/agents-plugin-elevenlabs": "^0.6.3",
+    "@livekit/agents-plugin-openai": "^0.9.3",
+    "@livekit/agents-plugin-silero": "^0.5.8",
+    "dotenv": "^17.2.0",
+    "zod": "^3.23.8"
+  },
+  "keywords": [
+    "livekit",
+    "voice-assistant",
+    "healthcare",
+    "appointment-scheduling",
+    "agents",
+    "ai"
+  ],
+  "author": "Rich Low",
+  "license": "MIT"
+} 
