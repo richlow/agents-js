@@ -1,47 +1,45 @@
-app = "cleo-healthcare-agent"
-primary_region = "ord"
+# fly.toml app configuration file generated for cleo-healthcare-agent on 2025-07-16T20:45:11+10:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'cleo-healthcare-agent'
+primary_region = 'ord'
 
 [build]
-  dockerfile = "Dockerfile"
-
-[env]
-  NODE_ENV = "production"
-  PORT = "8080"
-  HOST = "0.0.0.0"
-  LOG_LEVEL = "info"
-
-[http_service]
-  internal_port = 8080
-  force_https = true
-  auto_stop_machines = true
-  auto_start_machines = true
-  min_machines_running = 0
-  
-  [http_service.concurrency]
-    type = "connections"
-    hard_limit = 25
-    soft_limit = 20
-
-  [[http_service.checks]]
-    grace_period = "10s"
-    interval = "30s"
-    method = "GET"
-    path = "/"
-    protocol = "http"
-    timeout = "5s"
-    tls_skip_verify = false
-
-[[vm]]
-  cpu_kind = "shared"
-  cpus = 1
-  memory_mb = 1024
+  dockerfile = 'Dockerfile'
 
 [deploy]
   release_command = "echo 'Starting Cleo Healthcare Agent deployment'"
 
-[processes]
-  app = "npm start"
+[env]
+  HOST = '0.0.0.0'
+  LOG_LEVEL = 'info'
+  NODE_ENV = 'production'
+  PORT = '8080'
 
-# Optional: Auto-restart configuration
-[restart]
-  policy = "on-failure" 
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [http_service.concurrency]
+    type = 'connections'
+    hard_limit = 25
+    soft_limit = 20
+
+  [[http_service.checks]]
+    interval = '30s'
+    timeout = '5s'
+    grace_period = '10s'
+    method = 'GET'
+    path = '/'
+    protocol = 'http'
+    tls_skip_verify = false
+
+[[vm]]
+  cpu_kind = 'shared'
+  cpus = 1
+  memory_mb = 1024
