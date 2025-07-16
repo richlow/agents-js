@@ -17,17 +17,15 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Set environment variables for ONNX Runtime to use CPU version
-ENV ONNXRUNTIME_ROOT_PATH=/usr/local/lib/onnxruntime
-ENV ORT_ROOT_PATH=/usr/local/lib/onnxruntime
+# Create a temporary package.json without silero for build
+RUN cp package.json package.json.backup && \
+    node -e "const pkg = require('./package.json'); delete pkg.dependencies['@livekit/agents-plugin-silero']; require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));"
 
-# Install dependencies with specific handling for onnxruntime
-RUN npm ci --only=production || \
-    (npm cache clean --force && \
-     npm install --no-optional --production) || \
-    (echo "Trying without silero plugin..." && \
-     npm install --production --ignore-scripts && \
-     npm rebuild --production)
+# Install dependencies without silero plugin
+RUN npm ci --only=production
+
+# Restore original package.json
+RUN mv package.json.backup package.json
 
 # Copy application source
 COPY src/ ./src/

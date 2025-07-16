@@ -5,7 +5,7 @@ import { WorkerOptions, cli, defineAgent, llm, pipeline } from '@livekit/agents'
 import * as deepgram from '@livekit/agents-plugin-deepgram';
 import * as elevenlabs from '@livekit/agents-plugin-elevenlabs';
 import * as openai from '@livekit/agents-plugin-openai';
-import * as silero from '@livekit/agents-plugin-silero';
+// Silero will be imported conditionally in prewarm function
 import dotenv from 'dotenv';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
